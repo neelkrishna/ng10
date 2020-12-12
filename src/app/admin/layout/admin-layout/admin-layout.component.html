@@ -1,0 +1,13 @@
+<div class="admin-layout admin-container">
+  <nav class="sidenav-container">
+    <app-admin-sidebar></app-admin-sidebar>
+  </nav>
+  <main>
+    <app-admin-toolbar></app-admin-toolbar>
+
+    <div class="main-content">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+
+  </main>
+</div>

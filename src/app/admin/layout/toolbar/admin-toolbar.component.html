@@ -1,0 +1,49 @@
+<mat-toolbar class="mat-elevation-z2">
+  <mat-toolbar-row>
+    <!-- <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button> -->
+
+    <span class="spacer"></span>
+
+    <div class="menu-bar">
+      <button class="menu-button user-button" mat-button [matMenuTriggerFor]="userMenu">
+        <img class="avatar" src="/assets/images/users/admin_300x300.jpg" alt="">
+        <span>admin@gmail.com</span>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+
+      <mat-menu #userMenu="matMenu" xPosition="before">
+        <button mat-menu-item>
+          <mat-icon>account_box</mat-icon>
+          <span>{{ 'general.profile' | translate }}</span>
+        </button>
+
+        <button mat-menu-item (click)="onLogoutClicked()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>{{ 'general.logout' | translate }}</span>
+        </button>
+
+      </mat-menu>
+
+      <button class="menu-button" mat-button [matMenuTriggerFor]="languageMenu">
+        <img class="language-flag" src="/assets/images/flags/us.png">
+        <span>{{ selectedLanguage$ | async | uppercase }}</span>
+      </button>
+
+      <mat-menu #languageMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="onLanguageSelect('en')">
+          <img class="language-flag" src="/assets/images/flags/us.png">
+          <span>English (United States)</span>
+        </button>
+
+        <button mat-menu-item (click)="onLanguageSelect('vi')">
+          <img class="language-flag" src="/assets/images/flags/vn.png">
+          <span>Tiếng Việt (Việt Nam)</span>
+        </button>
+
+      </mat-menu>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>
